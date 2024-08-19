@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatDistanceToNow } from 'date-fns';
 import './todo-list.css';
 
 const TodoList = (props) => {
@@ -22,7 +23,10 @@ const TodoList = (props) => {
                   <button className="icon icon-pause"></button>
                   12:25
                 </span>
-                <span className="description">created 5 minutes ago</span>
+                <span className="description">{`created ${formatDistanceToNow(task.created, {
+                  includeSeconds: true,
+                  addSuffix: true,
+                })}`}</span>
               </label>
               <button className="icon icon-edit"></button>
               <button onClick={removeTaskHandler} className="icon icon-destroy"></button>

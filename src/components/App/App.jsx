@@ -6,9 +6,9 @@ import './app.css';
 
 const App = () => {
   const [tasks, setTasks] = React.useState([
-    { id: v1(), title: 'Batman', isDone: true },
-    { id: v1(), title: 'Spider Man', isDone: false },
-    { id: v1(), title: 'Titanic', isDone: false },
+    { id: v1(), title: 'Batman', isDone: true, created: new Date(2024, 6, 8, 18) },
+    { id: v1(), title: 'Spider Man', isDone: false, created: new Date() },
+    { id: v1(), title: 'Titanic', isDone: false, created: new Date() },
   ]);
 
   function removeTask(id) {
