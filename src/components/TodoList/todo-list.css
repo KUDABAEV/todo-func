@@ -133,6 +133,7 @@
   margin: auto 0;
   transition: color 0.2s ease-out;
   cursor: pointer;
+  padding-right: 25px;
 }
 
 .todo-list li .icon:hover {
@@ -170,7 +171,7 @@
 }
 
 .todo-list li .icon-play {
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .icon-pause:after {

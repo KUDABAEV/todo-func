@@ -6,7 +6,12 @@ import './main.css';
 const Main = (props) => {
   return (
     <section className="main">
-      <TodoList tasks={props.tasks} removeTask={props.removeTask} changeStatus={props.changeStatus} />
+      <TodoList
+        tasks={props.tasks}
+        removeTask={props.removeTask}
+        changeStatus={props.changeStatus}
+        toggleTimer={props.toggleTimer}
+      />
       <Footer
         tasks={props.tasks}
         changeFilter={props.changeFilter}
