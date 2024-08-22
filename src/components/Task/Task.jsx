@@ -5,6 +5,12 @@ function EditableInput(props) {
   const [title, setTitle] = React.useState(props.title || '');
   const onChangeTitleHandler = (e) => setTitle(e.currentTarget.value);
 
+  const inputRef = React.useRef(null);
+
+  React.useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   const onKeyDownEditHandler = (event) => {
     if (event.key !== 'Enter') return;
 
@@ -15,6 +21,7 @@ function EditableInput(props) {
   };
   return (
     <input
+      ref={inputRef}
       value={title}
       className="edit"
       onBlur={props.editModeToggle}
