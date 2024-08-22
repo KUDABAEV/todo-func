@@ -2,42 +2,14 @@ import React from 'react';
 import { v1 } from 'uuid';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
+import { saveState, getInitState } from '../../utils/utils';
 import './app.css';
 
 const App = () => {
-  const [tasks, setTasks] = React.useState([
-    {
-      id: v1(),
-      title: 'Batman',
-      isDone: true,
-      created: new Date(2024, 6, 8, 18),
-      minutes: 2,
-      seconds: 3,
-      isRun: false,
-      totalSeconds: 2 * 60 + 3,
-    },
-    {
-      id: v1(),
-      title: 'Spider Man',
-      isDone: false,
-      created: new Date(),
-      minutes: 1,
-      seconds: 3,
-      isRun: false,
-      totalSeconds: 1 * 60 + 3,
-    },
-    {
-      id: v1(),
-      title: 'Titanic',
-      isDone: false,
-      created: new Date(),
-      minutes: 3,
-      seconds: 5,
-      isRun: false,
-      totalSeconds: 3 * 60 + 5,
-    },
-  ]);
-
+  const [tasks, setTasks] = React.useState(getInitState);
+  React.useEffect(() => {
+    saveState(tasks);
+  }, [tasks]);
   function removeTask(id) {
     const newTasks = tasks.filter((t) => t.id !== id);
     setTasks(newTasks);
