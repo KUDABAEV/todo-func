@@ -11,6 +11,7 @@ const Main = (props) => {
         removeTask={props.removeTask}
         changeStatus={props.changeStatus}
         toggleTimer={props.toggleTimer}
+        changeTaskEditTitle={props.changeTaskEditTitle}
       />
       <Footer
         tasks={props.tasks}

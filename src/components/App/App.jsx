@@ -100,6 +100,14 @@ const App = () => {
     setTasks(newTasks);
   }
 
+  function changeTaskEditTitle(id, newTitle) {
+    const task = tasks.find((t) => t.id === id);
+    if (task) {
+      task.title = newTitle;
+      setTasks([...tasks]);
+    }
+  }
+
   function changeStatus(taskId, isDone) {
     const task = tasks.find((t) => t.id === taskId);
     if (task) {
@@ -136,6 +144,7 @@ const App = () => {
         changeStatus={changeStatus}
         onDeleteCompletedTodos={onDeleteCompletedTodos}
         toggleTimer={toggleTimer}
+        changeTaskEditTitle={changeTaskEditTitle}
       />
     </div>
   );
