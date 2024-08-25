@@ -2,7 +2,7 @@ import React from 'react';
 import Task from '../Task/Task';
 import './todo-list.css';
 
-const TodoList = (props) => {
+const TodoList = ({ tasks, removeTask, changeStatus, changeTaskEditTitle, toggleTimer }) => {
   const fix = (event) => {
     event.preventDefault();
     event.stopPropagation();
@@ -10,16 +10,16 @@ const TodoList = (props) => {
 
   return (
     <ul className="todo-list">
-      {props.tasks.map((task) => {
+      {tasks.map((task) => {
         const changeStatusHandler = (event) => {
-          props.changeStatus(task.id, event.currentTarget.checked);
+          changeStatus(task.id, event.currentTarget.checked);
         };
         const removeTaskHandler = () => {
-          props.removeTask(task.id);
+          removeTask(task.id);
         };
 
         const onChangeTitleHandler = (newValue) => {
-          props.changeTaskEditTitle(task.id, newValue);
+          changeTaskEditTitle(task.id, newValue);
         };
 
         return (
@@ -28,7 +28,7 @@ const TodoList = (props) => {
             {...task}
             changeStatusHandler={changeStatusHandler}
             removeTaskHandler={removeTaskHandler}
-            toggleTimer={props.toggleTimer}
+            toggleTimer={toggleTimer}
             fix={fix}
             changeTaskEditTitle={onChangeTitleHandler}
           />

@@ -3,6 +3,7 @@ import './footer.css';
 
 const Footer = (props) => {
   const countTasksActive = props.tasks.filter((t) => t.isDone === false).length;
+
   return (
     <footer className="footer">
       <span className="todo-count">{countTasksActive} items left</span>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { v1 } from 'uuid';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
@@ -7,7 +7,7 @@ import './app.css';
 
 const App = () => {
   const [tasks, setTasks] = React.useState(getInitState);
-  React.useEffect(() => {
+  useEffect(() => {
     saveState(tasks);
   }, [tasks]);
   function removeTask(id) {
@@ -47,7 +47,7 @@ const App = () => {
     });
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const idInterval = setInterval(() => {
       timerTick();
     }, 1000);
