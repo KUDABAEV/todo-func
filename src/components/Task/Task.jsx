@@ -12,10 +12,16 @@ function EditableInput(props) {
   }, []);
 
   const onKeyDownEditHandler = (event) => {
-    if (event.key !== 'Enter' && event.key !== 'Escape') return;
+    if (event.key !== 'Enter') return;
 
     if (title.trim() !== '') {
       props.changeTaskEditTitle(title);
+      props.editModeToggle();
+    }
+  };
+
+  const onKeyUpEditHandler = (event) => {
+    if (event.key === 'Escape') {
       props.editModeToggle();
     }
   };
@@ -27,6 +33,7 @@ function EditableInput(props) {
       className="edit"
       onBlur={props.editModeToggle}
       onKeyDown={onKeyDownEditHandler}
+      onKeyUp={onKeyUpEditHandler}
       type="text"
       onChange={onChangeTitleHandler}
     />
