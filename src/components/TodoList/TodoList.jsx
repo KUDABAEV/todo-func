@@ -7,6 +7,7 @@ const TodoList = (props) => {
     event.preventDefault();
     event.stopPropagation();
   };
+
   return (
     <ul className="todo-list">
       {props.tasks.map((task) => {
