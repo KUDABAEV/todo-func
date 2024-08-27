@@ -1,1 +1,1 @@
-[Todo](https://todo-class-kata.vercel.app/)
+[Todo](https://todo-func-green.vercel.app/)
